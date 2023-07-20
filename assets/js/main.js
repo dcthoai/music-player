@@ -7,43 +7,43 @@ const appPlayer = {
             name: 'Thanh Ti',
             singer: 'Đẳng Thập Ma Quân',
             path: './assets/music/thanh-ti.mp3',
-            image: './assets/img/song-icon.jpg'
+            image: './assets/img/thanh-ti-avartar.jpg'
         },
         {
             name: 'Cánh đồng yêu thương',
             singer: 'Trung Quân',
             path: './assets/music/canh-dong-yeu-thuong.mp3',
-            image: './assets/img/song-icon.jpg'
+            image: './assets/img/canh-dong-yeu-thuong-avartar.jpg'
         },
         {
             name: 'Loving you sunny',
             singer: 'Đen Vâu x Kimmese',
             path: './assets/music/loving-you-sunny.mp3',
-            image: './assets/img/song-icon.jpg'
+            image: './assets/img/loving-you-sunny-avartar.jpg'
         },
         {
             name: 'Chớ hỏi biệt ly x Ciaga',
             singer: 'Chỉ Tiêm Tiếu',
             path: './assets/music/cho-hoi-biet-ly-and-ciaga.mp3',
-            image: './assets/img/song-icon.jpg'
+            image: './assets/img/cho-hoi-biet-ly-avartar.jpg'
         },
         {
             name: 'Wolves',
             singer: 'Selena Gomez',
             path: './assets/music/wolves.mp3',
-            image: './assets/img/song-icon.jpg'
+            image: './assets/img/wolves-avartar.jpg'
         },
         {
             name: 'Close to the sun',
             singer: 'TheFatRat & Anjulie',
             path: './assets/music/close-to-the-sun.mp3',
-            image: './assets/img/song-icon.jpg'
+            image: './assets/img/close-to-the-sun-avartar.jpg'
         },
         {
             name: 'We\'ll meet again',
             singer: 'TheFatRat & Laura Brehm',
             path: './assets/music/well-meet-again.mp3',
-            image: './assets/img/song-icon.jpg'
+            image: './assets/img/we-will-meet-again-avarta.jpg'
         },
         {
             name: 'Light it up x Rise',
@@ -57,7 +57,7 @@ const appPlayer = {
         var html = this.songs.map(function(song){
             return `
                 <div class="song">
-                    <div class="song__avatar"><img src="./assets/img/song-icon.jpg" alt=""></div>
+                    <div class="song__avatar"><img src="${song.image}" alt=""></div>
                     <div class="song__info">
                         <div class="song__info-name">${song.name}</div>
                         <div class="song__info-singer">${song.singer}</div>
@@ -81,6 +81,10 @@ const appPlayer = {
             cdThumb.style.width = newCdWidth + 'px';
             cdThumb.style.height = newCdWidth + 'px';
         }
+    },
+
+    getCurrentSong: function(){
+
     },
 
     start: function(){
