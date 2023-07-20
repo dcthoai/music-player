@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="shortcut icon" href="./assets/img/mp3Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <div class="app">
+        <div class="player">
+            <div class="dashboard">
+                <header class="header">
+                    <h4 class="heading">Now playing</h4>
+                    <h4 class="current-song">String 57th $ 9th</h4>
+                </header>
+
+                <div class="cd">
+                    <div class="cd__thumb"></div>
+                </div>
+
+                <div class="controls">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <i class="fa-solid fa-backward-step"></i>
+                    <div class="controls__play">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <!-- <i class="fa-solid fa-circle-pause"></i> -->
+                    </div>
+                    <i class="fa-solid fa-forward-step"></i>
+                    <i class="fa-solid fa-shuffle"></i>
+                </div>
+                <audio src=""></audio>
+                <input id="progress" type="range" value="0" min="0" max="100" class="progress">
+            </div>
+            
+            <div class="wrapper">
+                <div class="play-list">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+   
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
+ 
