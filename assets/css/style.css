@@ -3,9 +3,14 @@
     padding: 0;
 }
 
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
 .app{
     margin: 0;
-    padding: 8px 0 0 0;
+    padding: 4px 0 0 0;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -44,21 +49,24 @@
     z-index: 1;
 }
 
-.dashboard .header{
-    padding-top: 8px;
+.dashboard .name-current-song{
+    color: #8400ff;
+    font-size: 18px;
+    line-height: 1;
 }
 
-.dashboard .header .heading{
+.dashboard .song-playing .name-singer{
+    margin-bottom: 6px;
     font-size: smaller;
     font-weight: 300;
-    color: #ff4130;
-    margin-bottom: 4px;
+    font-style: italic;
+    color: #7a6a84;
 }
 
 .dashboard .cd{
     width: 140px;
     height: 140px;
-    margin: 8px auto;
+    margin: 16px auto;
 }
 
 .dashboard .cd .cd__thumb{
@@ -68,6 +76,17 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 100%;
+    /* animation: spinning linear 10s infinite; */
+}
+
+@keyframes spinning{
+    from{
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+
 }
 
 .dashboard .controls{
@@ -81,7 +100,7 @@
 
 .dashboard .controls i{
     font-size: 24px;
-    color: #a200ff;
+    color: #8400ff;
     font-size: 18px;
     font-weight: 900;
 }
@@ -98,7 +117,7 @@
 
 .dashboard .controls .controls__play i{
     font-size: 36px;
-    color: #a200ff;
+    color: #8400ff;
     background-color: #e4fff6;
 }
 
@@ -125,7 +144,7 @@
     outline: none;
     border: none;
     margin-bottom: 16px;
-    accent-color:#b005ff;
+    accent-color: #8400ff;
 }
 
 .dashboard .progress:hover{
@@ -134,7 +153,7 @@
 
 .player .wrapper{
     width: 100%;
-    margin-top: 300px;
+    margin-top: 312px;
 }
 
 .wrapper .play-list{

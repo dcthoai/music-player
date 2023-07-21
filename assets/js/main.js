@@ -1,59 +1,61 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+const dashboard = $('.dashboard');
+const cdThumb = $('.dashboard .cd .cd__thumb');
+const audio = $('.dashboard audio');
+const nameSongPlaying = $('.dashboard .song-playing .name-current-song');
+const nameSingerPlaying = $('.dashboard .song-playing .name-singer');
+const playBtn = $('.dashboard .controls .controls__play');
+const timeSong = $('#progress');
 
 const appPlayer = {
+    currentIndexSong: 0,
+    isPlaying: false,
+
     songs: [
         {
-            id: 0,
             name: 'Thanh Ti',
             singer: 'Đẳng Thập Ma Quân',
             path: './assets/music/thanh-ti.mp3',
             image: './assets/img/thanh-ti-avartar.jpg'
         },
         {
-            id: 1,
             name: 'Cánh đồng yêu thương',
             singer: 'Trung Quân',
             path: './assets/music/canh-dong-yeu-thuong.mp3',
             image: './assets/img/canh-dong-yeu-thuong-avartar.jpg'
         },
         {
-            id: 2,
             name: 'Loving you sunny',
             singer: 'Đen Vâu x Kimmese',
             path: './assets/music/loving-you-sunny.mp3',
             image: './assets/img/loving-you-sunny-avartar.jpg'
         },
         {
-            id: 3,
             name: 'Chớ hỏi biệt ly x Ciaga',
             singer: 'Chỉ Tiêm Tiếu',
             path: './assets/music/cho-hoi-biet-ly-and-ciaga.mp3',
             image: './assets/img/cho-hoi-biet-ly-avartar.jpg'
         },
         {
-            id: 4,
             name: 'Wolves',
             singer: 'Selena Gomez',
             path: './assets/music/wolves.mp3',
             image: './assets/img/wolves-avartar.jpg'
         },
         {
-            id: 5,
             name: 'Close to the sun',
             singer: 'TheFatRat & Anjulie',
             path: './assets/music/close-to-the-sun.mp3',
             image: './assets/img/close-to-the-sun-avartar.jpg'
         },
         {
-            id: 6,
             name: 'We\'ll meet again',
             singer: 'TheFatRat & Laura Brehm',
             path: './assets/music/well-meet-again.mp3',
             image: './assets/img/we-will-meet-again-avarta.jpg'
         },
         {
-            id: 7,
             name: 'Light it up x Rise',
             singer: 'NCS',
             path: './assets/music/light-it-up-x-rise.mp3',
@@ -76,7 +78,14 @@ const appPlayer = {
         });
         $('.play-list').innerHTML = html.join('');
     },
-
+    
+    getCurrentSong: function(){
+        nameSongPlaying.innerHTML = `${this.songs[this.currentIndexSong].name}`;
+        nameSingerPlaying.innerHTML = `${this.songs[this.currentIndexSong].singer}`;
+        cdThumb.style.backgroundImage = `url('${this.songs[this.currentIndexSong].image}')`;
+        audio.src = `${this.songs[this.currentIndexSong].path}`;
+    },
+    
     handleScroll: function(){
         const cdWidth = $('.dashboard .cd').offsetWidth;
         const player = $('.player');
@@ -92,36 +101,49 @@ const appPlayer = {
         }
     },
 
-    loadCurrentSong: function(currentIndexSong){
-        $('.header .current-song').innerHTML = `${this.songs[currentIndexSong].name}`;
-        $('.cd__thumb').style.backgroundImage = `url('${this.songs[currentIndexSong].image}')`;
-        $('.dashboard audio').src = `${this.songs[currentIndexSong].path}`;
+    handleEvents: function(){
+        const app = this;
+        playBtn.onclick = function(){
+            if(app.isPlaying){
+                audio.pause();
+                app.isPlaying = false;
+            }else{
+                audio.play();
+                app.isPlaying = true;
+            }
+        };
+        audio.onplay = function(){
+            dashboard.classList.add('playing');
+            cdThumb.style.animation = 'spinning 10s linear infinite';
+        };
+        audio.onpause = function(){
+            dashboard.classList.remove('playing');
+            cdThumb.style.animation = 'none';
+        };
+        
+        audio.ontimeupdate = function(){
+            var currentTimeSong = audio.currentTime;
+            timeSong.value = currentTimeSong;
+        }
+
+        const listSongs = $$('.song');
+        listSongs.forEach(function(song, indexSong){
+            song.onclick = function(){
+                app.currentIndexSong = indexSong;
+                app.getCurrentSong();
+                dashboard.classList.add('playing');
+                audio.play();
+            };
+        });
     },
 
     start: function(){
         const app = this;
         app.renderSong();
         app.handleScroll();
-        app.loadCurrentSong(0);
-
-        $('.fa-circle-play').onclick = function(){
-            $('.controls .i')
-            $('.dashboard').classList.add('playing');
-            $('audio').play();
-        }
-        $('.fa-circle-pause').onclick = function(){
-            $('.dashboard').classList.remove('playing');
-            $('audio').pause();
-        }
-        var listSongs = $$('.song');
+        app.getCurrentSong();
+        app.handleEvents();
         
-        listSongs.forEach(function(song, indexSong){
-            song.onclick = function(){
-                app.loadCurrentSong(indexSong);
-                $('.dashboard').classList.add('playing');
-                $('audio').play();
-            }
-        })
     }
 }
 
