@@ -8,56 +8,56 @@ const appPlayer = {
             name: 'Thanh Ti',
             singer: 'Đẳng Thập Ma Quân',
             path: './assets/music/thanh-ti.mp3',
-            image: '/musicPlayer/assets/img/thanh-ti-avartar.jpg'
+            image: './assets/img/thanh-ti-avartar.jpg'
         },
         {
             id: 1,
             name: 'Cánh đồng yêu thương',
             singer: 'Trung Quân',
             path: './assets/music/canh-dong-yeu-thuong.mp3',
-            image: '/musicPlayer/assets/img/canh-dong-yeu-thuong-avartar.jpg'
+            image: './assets/img/canh-dong-yeu-thuong-avartar.jpg'
         },
         {
             id: 2,
             name: 'Loving you sunny',
             singer: 'Đen Vâu x Kimmese',
             path: './assets/music/loving-you-sunny.mp3',
-            image: '/musicPlayer/assets/img/loving-you-sunny-avartar.jpg'
+            image: './assets/img/loving-you-sunny-avartar.jpg'
         },
         {
             id: 3,
             name: 'Chớ hỏi biệt ly x Ciaga',
             singer: 'Chỉ Tiêm Tiếu',
             path: './assets/music/cho-hoi-biet-ly-and-ciaga.mp3',
-            image: '/musicPlayer/assets/img/cho-hoi-biet-ly-avartar.jpg'
+            image: './assets/img/cho-hoi-biet-ly-avartar.jpg'
         },
         {
             id: 4,
             name: 'Wolves',
             singer: 'Selena Gomez',
             path: './assets/music/wolves.mp3',
-            image: '/musicPlayer/assets/img/wolves-avartar.jpg'
+            image: './assets/img/wolves-avartar.jpg'
         },
         {
             id: 5,
             name: 'Close to the sun',
             singer: 'TheFatRat & Anjulie',
             path: './assets/music/close-to-the-sun.mp3',
-            image: '/musicPlayer/assets/img/close-to-the-sun-avartar.jpg'
+            image: './assets/img/close-to-the-sun-avartar.jpg'
         },
         {
             id: 6,
             name: 'We\'ll meet again',
             singer: 'TheFatRat & Laura Brehm',
             path: './assets/music/well-meet-again.mp3',
-            image: '/musicPlayer/assets/img/we-will-meet-again-avarta.jpg'
+            image: './assets/img/we-will-meet-again-avarta.jpg'
         },
         {
             id: 7,
             name: 'Light it up x Rise',
             singer: 'NCS',
             path: './assets/music/light-it-up-x-rise.mp3',
-            image: '/musicPlayer/assets/img/song-icon.jpg'
+            image: './assets/img/song-icon.jpg'
         },
     ],
 
