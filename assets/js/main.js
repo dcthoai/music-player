@@ -7,10 +7,12 @@ const nameSongPlaying = $('.dashboard .song-playing .name-current-song');
 const nameSingerPlaying = $('.dashboard .song-playing .name-singer');
 const playBtn = $('.dashboard .controls .controls__play');
 const timeSong = $('#progress');
+const loopSong = $('.dashboard .controls .fa-rotate-right');
 
 const appPlayer = {
     currentIndexSong: 0,
     isPlaying: false,
+    isLoopSong: false,
 
     songs: [
         {
@@ -84,6 +86,7 @@ const appPlayer = {
         nameSingerPlaying.innerHTML = `${this.songs[this.currentIndexSong].singer}`;
         cdThumb.style.backgroundImage = `url('${this.songs[this.currentIndexSong].image}')`;
         audio.src = `${this.songs[this.currentIndexSong].path}`;
+        playBtn.defaultValue = 0;
     },
     
     handleScroll: function(){
@@ -103,6 +106,7 @@ const appPlayer = {
 
     handleEvents: function(){
         const app = this;
+
         playBtn.onclick = function(){
             if(app.isPlaying){
                 audio.pause();
@@ -123,8 +127,43 @@ const appPlayer = {
         
         audio.ontimeupdate = function(){
             var currentTimeSong = audio.currentTime;
-            timeSong.value = currentTimeSong;
+            if(audio.duration > 0){
+                timeSong.value = (currentTimeSong / audio.duration) * 100;
+            }
         }
+
+        timeSong.onchange = function(){
+            audio.currentTime = timeSong.value * audio.duration / 100;
+            audio.play();
+        }
+
+        loopSong.onclick = function(){
+            if(app.isLoopSong){
+                audio.loop = false;
+                app.isLoopSong = false;
+                loopSong.style.color = '#8400ff';
+            }else{
+                audio.loop = true;
+                app.isLoopSong = true;
+                loopSong.style.color = '#ff0000';
+            }     
+        }
+        
+        
+
+        const nextSong = $('.controls .fa-forward-step');
+        const preSong = $('.controls .fa-backward-step');
+        nextSong.onclick = function nextMusic(){
+            app.currentIndexSong++;
+            app.getCurrentSong();
+            audio.play();
+        }
+        preSong.onclick = function backMusic(){
+            app.currentIndexSong--;
+            app.getCurrentSong();
+            audio.play();
+        }
+
 
         const listSongs = $$('.song');
         listSongs.forEach(function(song, indexSong){
