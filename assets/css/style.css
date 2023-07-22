@@ -69,17 +69,6 @@ html{
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 100%;
-    /* animation: spinning linear 10s infinite; */
-}
-
-@keyframes spinning{
-    from{
-        transform: rotate(0);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-
 }
 
 .dashboard .controls{
