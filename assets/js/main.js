@@ -169,6 +169,7 @@ const appPlayer = {
             shuffleSongBtn.style.color = '#ff0000';
             this.isRandomSong = true;
             if(this.isLoopSong){
+                audio.loop = false;
                 this.isLoopSong = false;
                 loopSongBtn.style.color = '#8400ff';
             }
