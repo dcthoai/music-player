@@ -135,6 +135,7 @@ html{
 
 .player .wrapper{
     margin-top: 308px;
+    margin-bottom: 320px;
 }
 
 .wrapper .play-list .song{
@@ -147,6 +148,10 @@ html{
     background-color: rgba(253, 251, 215, 0.7);
     display: flex;
     position: relative;
+}
+
+.wrapper .play-list .song.active{
+    background-color: #63ff5ece;
 }
 
 .wrapper .play-list .song:hover{
